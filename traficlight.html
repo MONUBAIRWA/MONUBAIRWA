@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>traficlight</title>
+</head>
+<style>
+    .container{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* margin-left: 40%; */
+    }
+    .light-fram{
+        display: flex;
+        width: 200px;
+        height: 200px;
+        background-color: gray;
+        margin-top: 5px;
+    }
+    .light{
+        width: 180px;
+        height: 180px;
+        
+        border-radius: 50%;
+        margin: 10px;
+    }
+    .fram-angle{
+        border-radius:  0 0 20px 20px;
+        width: 50px;
+        height: 600px;
+        background-color: gray;
+        margin-left: 80px;
+    
+    }
+    .time-angle{
+        
+        margin-top: 5px;
+        display: flex;
+
+    }
+    #red{
+background-color:red;
+    }
+    .time-angle2{
+        
+        width: 800px;
+        height: 50px;
+        background-color: gray;
+    }
+    .time-angle1{
+        border-radius:25px 0 0 0;
+        
+        width: 50px;
+        height: 200px;
+        background-color: gray;
+    }
+    body{
+        display: flex;
+        padding-left: 20%;
+        padding-top: 5%;
+    }
+    .time-view{
+        width: 200px;
+        height: 100px;
+        /* background-color: gray; */
+        background-color:aqua;
+        margin-top: 200px;
+        border-radius: 0 50px 0 50px;
+        font-size: 50px;
+        text-align: center;
+        padding-top: 20px;
+        color: red;
+    }
+   
+</style>
+<body>
+    
+    <div class="time-angle">
+    <div class="time-angle1">
+        <div class="time-view"></div>
+    </div>
+    <div class="time-angle2"></div>
+    
+    </div>
+    <div class="container">
+        <div class="light-fram">
+            <div class="light" id="green"></div>
+        </div>
+        <div class="light-fram">
+            <div class="light" id="yellow"></div>
+        </div>
+        <div class="light-fram">
+            <div class="light" id="red"></div>
+        </div>
+        <div class="fram-angle"></div>
+    </div>
+    
+</body>
+<script>
+    setInterval(()=>{
+const green = document.getElementById('green');
+green.style.backgroundColor = 'green';
+const red = document.getElementById('red');
+red.style.backgroundColor = 'gray';
+const yellow = document.getElementById('yellow');
+yellow.style.backgroundColor = 'gray';
+    },10000);
+    setInterval(()=>{
+const green = document.getElementById('green');
+green.style.backgroundColor = 'gray';
+const red = document.getElementById('red');
+red.style.backgroundColor = 'gray';
+const yellow = document.getElementById('yellow');
+yellow.style.backgroundColor = 'yellow';
+    },20000);
+    setInterval(()=>{
+const green = document.getElementById('green');
+green.style.backgroundColor = 'gray';
+const red = document.getElementById('red');
+red.style.backgroundColor = 'red';
+const yellow = document.getElementById('yellow');
+yellow.style.backgroundColor = 'gray';
+    },30000);
+    setInterval(()=>{
+        const time = document.querySelector(".time-view");
+const date = new Date();
+  
+  let second = date.getSeconds() ;
+  if(second < 11){
+time.innerHTML = second;
+  }
+ else if(second < 21){
+time.innerHTML = second-10;
+ 
+  }else if(second < 31){
+    time.innerHTML = second-20;
+  }
+  else if(second < 41){
+    time.innerHTML = second-30;
+  }
+  else if(second < 51){
+    time.innerHTML = second-40;
+  }
+  else {
+    time.innerHTML = second-50;
+  }
+ },1000);
+</script>
+</html>
